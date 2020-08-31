@@ -1,27 +1,53 @@
-let x = 0;
-let speed = 3;
+let x = 450;
+let y = 450;
+let xspeed = 4;
+let yspeed = 4;
+let r;
+let g;
+let b;
 
 function setup() {
-  // put setup code here
-  createCanvas(500,500);
+  createCanvas(windowWidth, windowHeight);
+  background(225,100,180);
+  r = random(255);
+  g = random(255);
+  b= random(255);
+
+}//end ofsetup
+
+function draw() {
+  ellipse(x,y,100,100);
+  fill(r,g,b);
+  stroke(22);
+
+  if(x > width || x < 50){
+  xspeed = -xspeed
+  }
+  if(y > height || y < 50){
+  yspeed = -yspeed
+  }
+
+  x = x + xspeed;
+  y = y + yspeed;
+
+  if(mouseIsPressed){
+    //fill(255,100,180,20);
+    //^will use a gradient to change between colors^
+    //if taken out will allow mutiple color design
+
+    //ellipse(mouseX,mouseY,100,100);
+    //^will allow to drag the circle^
+
+    r = random(255);
+    g = random(255);
+    b = random(255);
+  }
 
 }
 
-function draw() {
-  // put drawing code here
-  background(100,100,100);
 
-  fill(20,30,100);
-  rect(x,100,100,100);
-
-  if(x + 100 > width){
-    speed = (-1*speed);
+function keyPressed() {
+  if (key === 's') {
+    saveCanvas('image1s', 'png');
   }
-
-  x = x + speed;
-
-
-  //fill(0,0,255);
-  //ellipse(300,300,100,100);
-
 }
