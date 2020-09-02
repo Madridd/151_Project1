@@ -37,7 +37,7 @@ class Bubble {
   constructor() {
     this.x = random(width);
     this.y = random(height);
-    this.diameter = random(50, 80);
+    this.diameter = random(100, 300);
     this.xspeed = 1;
     this.yspeed = 2;
     this.history = [];
@@ -53,7 +53,7 @@ class Bubble {
     var v = createVector(this.x, this.y);
     this.history.push(v);
 
-    if(this.history.length > 50){
+    if(this.history.length > 200){
       this.history.splice(0,2);
     }
 
